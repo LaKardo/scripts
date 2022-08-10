@@ -83,8 +83,8 @@ make_kernel() {
 	echo
 	BUILD_START=$(date +"%s")
 	cd $KERNEL_DIR
-	make O=$KBUILD_OUTPUT CC=clang AR=llvm-ar AS=llvm-as NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip $DEFCONFIG -j8
-	make O=$KBUILD_OUTPUT CC=clang AR=llvm-ar AS=llvm-as NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip -j8  2>&1 | tee error.log
+	make O=$KBUILD_OUTPUT CC=clang $DEFCONFIG -j8
+	make O=$KBUILD_OUTPUT CC=clang -j8  2>&1 | tee error.log
 	BUILD_END=$(date +"%s")
 	DIFF=$((BUILD_END - BUILD_START))
 	check_img
