@@ -1,12 +1,12 @@
 #!/bin/bash
 
-CHATID=482554110
+CHATID="482554110"
 
-KERNEL_DIR=/tmp/kernel/kernel_r8q
-TOOLCHAIN_DIR=/tmp/toolchain
-REPACK_DIR=$TOOLCHAIN_DIR/AnyKernel3
-ZIP_DIR=$TOOLCHAIN_DIR/zip
-KBUILD_OUTPUT=$KERNEL_DIR/out
+KERNEL_DIR="/tmp/kernel/kernel_r8q"
+TOOLCHAIN_DIR="/tmp/toolchain"
+REPACK_DIR="$TOOLCHAIN_DIR/AnyKernel3"
+ZIP_DIR="$TOOLCHAIN_DIR/zip"
+KBUILD_OUTPUT="$KERNEL_DIR/out"
 
 IMAGE="$KBUILD_OUTPUT/arch/arm64/boot/Image.gz"
 DTB="$KBUILD_OUTPUT/dtb.img"
