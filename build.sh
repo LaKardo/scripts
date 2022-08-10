@@ -35,7 +35,7 @@ git_clone(){
     echo
     tg_post_msg "<b>Cloning AnyKernel3</b>"
     echo
-    git clone --recursive --shallow-submodules --depth 1 --jobs 8 https://github.com/LaKardo/AnyKernel3 AnyKernel3
+    git clone --recursive --shallow-submodules --depth 1 --jobs 8 https://github.com/LaKardo/AnyKernel3 -b r8q AnyKernel3
     echo
     mkdir -p /tmp/kernel/toolchain
     cd $TOOLCHAIN_DIR
