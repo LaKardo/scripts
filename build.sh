@@ -16,7 +16,7 @@ DEFCONFIG="soviet-star_defconfig"
 
 BASE_AK_VER="SOVIET-STAR-"
 DATE=`date +"%Y%m%d-%H%M"`
-AK_VER="$BASE_AK_VER$VER"
+AK_VER="$BASE_AK_VER"
 ZIP_NAME="$AK_VER"-"$DATE"
 
 export BOT_MSG_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage"
@@ -85,6 +85,7 @@ make_kernel() {
 	cd $KERNEL_DIR
 	make O=$KBUILD_OUTPUT CC=clang $DEFCONFIG -j8
 	make O=$KBUILD_OUTPUT CC=clang -j8  2>&1 | tee error.log
+        tg_post_build $KBUILD_OUTPUT/.config
 	BUILD_END=$(date +"%s")
 	DIFF=$((BUILD_END - BUILD_START))
 	check_img
@@ -93,7 +94,7 @@ make_kernel() {
 check_img() {
 	if [ -f $KBUILD_OUTPUT/arch/arm64/boot/Image.gz ]
 	    then
-	    cat $KBUILD_OUTPUT/arch/arm64/boot/dts/vendor/qcom/*.dtb > $KBUILD_OUTPUT/dtb.img
+	        cat $KBUILD_OUTPUT/arch/arm64/boot/dts/vendor/qcom/*.dtb > $KBUILD_OUTPUT/dtb.img
 		make_zip
 	else
 		tg_post_build "error.log"
