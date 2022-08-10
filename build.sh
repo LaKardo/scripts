@@ -24,19 +24,21 @@ export BOT_BUILD_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument"
 
 git_clone(){
     mkdir -p /tmp/kernel
-    cd /tmp/kernel
+    cd $BASE_DIR
     echo
     tg_post_msg "<b>Cloning kernel sources</b>"
     echo
     git clone --recursive --shallow-submodules --depth 1 --jobs 8 https://github.com/LaKardo/android_kernel_r8q kernel_r8q
     echo
-    mkdir -p /tmp/toolchain/zip
-    cd $TOOLCHAIN_DIR
+    mkdir -p /tmp/kernel/AnyKernel3
+    cd $REPACK_DIR
     echo
     tg_post_msg "<b>Cloning AnyKernel3</b>"
     echo
     git clone --recursive --shallow-submodules --depth 1 --jobs 8 https://github.com/LaKardo/AnyKernel3 AnyKernel3
     echo
+    mkdir -p /tmp/kernel/toolchain
+    cd $TOOLCHAIN_DIR
     tg_post_msg "<b>Cloning toolchain</b>"
     git clone --recursive --shallow-submodules --depth 1 --jobs 8 https://github.com/kdrag0n/proton-clang proton-clang
     cd /tmp
