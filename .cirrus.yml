@@ -1,0 +1,12 @@
+---
+task:
+  name: kernel
+  environment:
+    TG_BOT_TOKEN : ""
+    CIRRUS_CLONE_DEPTH: "1"
+  build_script:
+    - ./build
+  container:
+    cpu: 8
+    image: "panchajanya1999/archlinux:latest"
+    memory: 4G
