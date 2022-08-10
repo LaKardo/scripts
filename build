@@ -8,8 +8,8 @@ REPACK_DIR=$TOOLCHAIN_DIR/AnyKernel3
 ZIP_DIR=$TOOLCHAIN_DIR/zip
 KBUILD_OUTPUT=$KERNEL_DIR/out
 
-IMAGE="$KBUILD_OUTPUT/arch/arm64/boot/Image.gz"
-DTB="$KBUILD_OUTPUT/dtb.img"
+IMAGE=$KBUILD_OUTPUT/arch/arm64/boot/Image.gz
+DTB=$KBUILD_OUTPUT/dtb.img
 
 DEFCONFIG="soviet-star_defconfig"
 
